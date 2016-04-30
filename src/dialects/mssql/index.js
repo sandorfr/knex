@@ -90,6 +90,9 @@ assign(Client_MSSQL.prototype, {
       if (value === undefined) {
         return this.valueForUndefined
       }
+      if ( typeof value === 'number' && value >= 2147483647 || value <= -2147483648){
+        return value.toString()
+      }
       return value
     })
   },
